@@ -6,9 +6,8 @@ import com.academy.repository.CarRepository;
 import java.util.List;
 
 public interface CarService {
-    CarRepository getCarRepository();
+    List<Car> getCars(String status);
 
-    Car getCarById(Integer id);
+    void saveCar(Car car);
 
-    List<Car> getCarsByStatus(String status);
 }

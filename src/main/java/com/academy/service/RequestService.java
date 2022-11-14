@@ -5,9 +5,10 @@ import com.academy.model.Request;
 import java.util.List;
 
 public interface RequestService {
-    List<Request> getAllRequests();
+    List<Request> getRequests(String status);
+    List<Request> getRequests(Integer id);
 
-    Request getRequestById(Integer id);
-
-    List<Request> getRequestByStatus(Integer status);
+//    Request getRequestById(Integer userId);
+//
+//    List<Request> getRequestByStatus(Integer status);
 }

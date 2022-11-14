@@ -1,6 +1,8 @@
 package com.academy.model;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,7 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-@Data
+@Getter
+@Setter
 @Entity
 public class Login {
     @Id

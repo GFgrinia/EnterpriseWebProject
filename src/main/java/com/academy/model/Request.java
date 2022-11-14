@@ -1,7 +1,8 @@
 package com.academy.model;
 
-import com.academy.model.status.RequestStatus;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,7 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.sql.Timestamp;
 
-@Data
+@Getter
+@Setter
 @Entity
 public class Request {
     @Id

@@ -11,9 +11,10 @@ import java.util.List;
 
 @Repository
 public interface RequestRepository extends JpaRepository<Request, Integer> {
-    @Query("select c from Car c where c.carStatus.status = :status")
-    List<Car> findByStatus(@Param("status") String status);
 
-    @Query("select r from Request r where r.requestStatus.id = :status")
-    List<Request> findRequestByStatus(@Param("status") Integer status);
+    @Query("select r from Request r where r.requestStatus.status = :status")
+    List<Request> findRequestByStatus(@Param("status") String status);
+
+    @Query("select r from Request r where r.user.id = :userId")
+    List<Request> findRequestByUser(@Param("userId") Integer userId);
 }

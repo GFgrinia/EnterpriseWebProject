@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Setter
 @Getter
@@ -30,6 +32,8 @@ public class User {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")
     private Role role;
+    @OneToMany(mappedBy = "user")
+    private List<Request> requests;
 
 
 }

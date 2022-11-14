@@ -1,7 +1,8 @@
 package com.academy.model;
 
-import com.academy.model.status.PaymentStatus;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -12,7 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Data
+@Getter
+@Setter
 @Entity
 public class Payment {
     @Id

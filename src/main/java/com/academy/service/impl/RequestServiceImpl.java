@@ -14,19 +14,16 @@ public class RequestServiceImpl implements RequestService {
     private final RequestRepository requestRepository;
 
     @Override
-    public List<Request> getAllRequests() {
-        return requestRepository.findAll();
+    public List<Request> getRequests(String status) {
+        if (status != null) {
+            return requestRepository.findRequestByStatus(status);
+        } else {
+            return requestRepository.findAll();
+        }
     }
 
     @Override
-    public Request getRequestById(Integer id) {
-        return requestRepository.findById(id).get();
+    public List<Request> getRequests(Integer user_id) {
+        return requestRepository.findRequestByUser(user_id);
     }
-
-    @Override
-    public List<Request> getRequestByStatus(Integer status) {
-        return requestRepository.findRequestByStatus(status);
-    }
-
-
 }
