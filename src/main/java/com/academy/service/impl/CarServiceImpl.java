@@ -1,9 +1,12 @@
 package com.academy.service.impl;
 
 import com.academy.model.Car;
+import com.academy.model.CarStatus;
 import com.academy.repository.CarRepository;
 import com.academy.service.CarService;
 import com.academy.service.CarStatusService;
+import com.academy.web.dto.CarSaveDto;
+import com.academy.web.mapper.CarMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +30,12 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public void saveCar(Car car) {
+    public void saveNewCar(CarSaveDto carSaveDto) {
+
+        Car car = CarMapper.INSTANCE.carSaveDtoToCar(carSaveDto);
+        CarStatus carStatus = carStatusService.findById(carSaveDto.getStatusId());
+        car.setCarStatus(carStatus);
+
         carRepository.save(car);
     }
 
