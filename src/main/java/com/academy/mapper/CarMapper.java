@@ -1,7 +1,8 @@
-package com.academy.web.mapper;
+package com.academy.mapper;
 
+import com.academy.dto.CarDto;
 import com.academy.model.Car;
-import com.academy.web.dto.CarSaveDto;
+import com.academy.dto.CarSaveDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -10,7 +11,9 @@ public interface CarMapper {
 
     CarMapper INSTANCE = Mappers.getMapper(CarMapper.class);
 
-    CarSaveDto carToCarSaveDto(Car car);
 
     Car carSaveDtoToCar(CarSaveDto carSaveDto);
+
+    CarDto carToCarDto(Car car);
+
 }

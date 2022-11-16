@@ -1,4 +1,4 @@
-package com.academy.web.dto;
+package com.academy.dto;
 
 import com.academy.model.CarStatus;
 import lombok.Getter;
@@ -9,6 +9,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class CarSaveDto {
+    private Integer id;
     private String vendor;
     private String model;
     private Integer rent;

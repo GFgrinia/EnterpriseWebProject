@@ -1,7 +1,7 @@
-package com.academy.web.mapper;
+package com.academy.mapper;
 
 import com.academy.model.Role;
-import com.academy.web.dto.RoleDto;
+import com.academy.dto.RoleDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

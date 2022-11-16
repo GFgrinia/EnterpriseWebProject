@@ -1,4 +1,4 @@
-package com.academy.web.dto;
+package com.academy.dto;
 
 import lombok.Getter;
 import lombok.Setter;

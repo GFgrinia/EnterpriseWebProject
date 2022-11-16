@@ -1,29 +1,53 @@
-<%@page isELIgnored="false" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="common/header.jsp"%>
 
-<html>
-<head>
-    <title>List of Requests</title>
 
-</head>
 
-<body>
-List of requests
-<a href="<c:url value="/"/>">Back to Main</a> <br>
-<br>
-<a href="<c:url value="/requests"/>">All</a> <br>
-<a href="<c:url value="/requests?status=Awaiting approval"/>">Awaiting approval</a> <br>
-<a href="<c:url value="/requests?status=Awaiting payment"/>">Awaiting payment</a> <br>
-<a href="<c:url value="/requests?status=Active"/>">Active</a> <br>
-<a href="<c:url value="/requests?status=Completed"/>">Completed</a> <br>
-<a href="<c:url value="/requests?status=Overdue"/>">Overdue</a> <br>
-<a href="<c:url value="/requests?status=Rejected"/>">Rejected</a> <br>
-<br>
+<div class="horizontal-block">
 
-<c:forEach items="${requests}" var = "request">
-    ${request.id} - ${request.user.name} - ${request.car.vendor} - ${request.car.model} - ${request.startDate} - ${request.requestStatus.status}<br>
-</c:forEach>
+    <div class="table-content">
+        <div class="horizontal-menu">
+            <a href="<c:url value="/requests"/>"><button class="menu">All</a> <br>
+            <a href="<c:url value="/requests?status=Awaiting approval"/>"><button class="menu">Awaiting approval</button></a>
+            <a href="<c:url value="/requests?status=Awaiting payment"/>"><button class="menu">Awaiting payment</button></a>
+            <a href="<c:url value="/requests?status=Active"/>"><button class="menu">Active</button></a>
+            <a href="<c:url value="/requests?status=Completed"/>"><button class="menu">Completed</button></a>
+            <a href="<c:url value="/requests?status=Overdue"/>"><button class="menu">Overdue</button></a>
+            <a href="<c:url value="/requests?status=Rejected"/>"><button class="menu">Rejected</button></a>
+        </div>
+    </div>
 
-</body>
 
-</html>
+    <div class="table-content">
+        <c:choose>
+            <c:when test="${status == null}">
+                <p>Show: ALL</p>
+            </c:when>
+            <c:otherwise>
+                <p>Show: ${status}</p>
+            </c:otherwise>
+        </c:choose>
+
+        <br>
+        <br>
+
+        <c:forEach items="${requests}" var = "request">
+            ${request.id} - ${request.user.name} - ${request.car.vendor} - ${request.car.model} - ${request.startDate} - ${request.requestStatus.status}<br>
+        </c:forEach>
+
+    </div>
+
+
+
+</div>
+
+
+</div>
+
+<%@ include file="common/footer.jsp"%>
+
+
+
+
+
+
+

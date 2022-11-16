@@ -1,8 +1,7 @@
 package com.academy.web.controller;
 
-import com.academy.web.dto.UserDto;
+import com.academy.dto.UserDto;
 import com.academy.service.LoginService;
-import com.sun.xml.bind.v2.TODO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,7 +1,7 @@
-package com.academy.web.mapper;
+package com.academy.mapper;
 
 import com.academy.model.User;
-import com.academy.web.dto.UserDto;
+import com.academy.dto.UserDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
