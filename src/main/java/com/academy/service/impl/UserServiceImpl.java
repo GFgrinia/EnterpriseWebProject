@@ -3,7 +3,7 @@ package com.academy.service.impl;
 import com.academy.model.User;
 import com.academy.repository.LoginRepository;
 import com.academy.repository.UserRepository;
-import com.academy.service.UserService;
+import com.academy.service.interfaces.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +14,11 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final LoginRepository loginRepository;
+
+   //@Cacheable("users")
+    public User getUserByUsername(String username) {
+        return userRepository.findByName(username);
+    }
 
     @Override
     public List<User> getUsers() {

@@ -17,6 +17,7 @@ public class CacheConfig {
         SimpleCacheManager cacheManager = new SimpleCacheManager();
         cacheManager.setCaches(Arrays.asList(
                 new ConcurrentMapCache("roles"),
+                new ConcurrentMapCache("users"),
                 new ConcurrentMapCache("statuses")));
         return cacheManager;
     }

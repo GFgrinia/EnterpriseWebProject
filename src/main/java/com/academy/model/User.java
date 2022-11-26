@@ -3,6 +3,9 @@ package com.academy.model;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,6 +17,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 @Setter
@@ -29,11 +34,10 @@ public class User {
     private String passport;
     @Column
     private String email;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne()
     @JoinColumn(name = "role_id")
-    private Role role;
+    private Role userRole;
+
     @OneToMany(mappedBy = "user")
     private List<Request> requests;
-
-
 }

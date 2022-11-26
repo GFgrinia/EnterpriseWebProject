@@ -1,0 +1,41 @@
+
+
+
+
+
+/* Using table to better look */
+.wrap {
+    display: table;
+}
+
+
+
+/* Style for main info */
+.horizontal-block {
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    vertical-align: top;
+}
+
+
+
+
+.horizontal-menu {
+    display: table-cell;
+    width: 250px;
+    height: 20px;
+    text-align: left;
+    vertical-align: top;
+}
+
+
+.table-content {
+    padding: 1px 60px;
+}
+
+
+.login-content {
+    padding: 1px 160px;
+}

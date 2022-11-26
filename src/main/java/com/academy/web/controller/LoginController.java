@@ -1,7 +1,7 @@
 package com.academy.web.controller;
 
-import com.academy.dto.UserDto;
-import com.academy.service.LoginService;
+import com.academy.web.dto.UserDto;
+import com.academy.service.interfaces.LoginService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +18,12 @@ public class LoginController {
 //    2.The email address validation
 //    3.The password confirmation matches the password
 //    4.The account doesn't already exist unique username and email.
+
+
+    @GetMapping(value = "/login")
+    public String userLogin(Model model) {
+        return "login";
+    }
 
     @GetMapping(value = "/user/registration")
     public String userRegistrationForm(Model model) {

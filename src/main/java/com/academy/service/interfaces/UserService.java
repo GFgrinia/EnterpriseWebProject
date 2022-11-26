@@ -1,4 +1,4 @@
-package com.academy.service;
+package com.academy.service.interfaces;
 
 import com.academy.model.User;
 import com.academy.repository.UserRepository;
@@ -11,4 +11,6 @@ public interface UserService {
     User getUserById(Integer id);
 
     void saveUser(User user);
+
+    User getUserByUsername(String username);
 }

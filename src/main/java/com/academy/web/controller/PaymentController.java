@@ -1,15 +1,12 @@
 package com.academy.web.controller;
 
 import com.academy.model.Payment;
-import com.academy.service.PaymentService;
+import com.academy.service.interfaces.PaymentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @Controller
 @RequiredArgsConstructor

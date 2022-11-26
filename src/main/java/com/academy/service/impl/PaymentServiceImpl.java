@@ -2,7 +2,7 @@ package com.academy.service.impl;
 
 import com.academy.model.Payment;
 import com.academy.repository.PaymentRepository;
-import com.academy.service.PaymentService;
+import com.academy.service.interfaces.PaymentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +22,10 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public Payment getPaymentById(Integer id) {
         return paymentRepository.findById(id).get();
+    }
+
+    @Override
+    public void setPayment(Payment payment) {
+        paymentRepository.save(payment);
     }
 }

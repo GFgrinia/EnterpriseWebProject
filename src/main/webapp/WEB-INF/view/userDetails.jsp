@@ -1,29 +1,90 @@
-<%@page isELIgnored="false" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="common/header.jsp"%>
 
-<html>
-<head>
-    <title>User Details</title>
-</head>
-
-<body>
-User Info <br> <br>
+<div class="col-9">
+    <div class="row">
+        <div class="mx-auto">
+            <h3>USER DETAILS</h3>
+        </div>
+    </div>
 
 
+        <div class="row">
+            <div class="col-6">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <td>${user.id}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <td>${user.name}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">E-mail</th>
+                            <td>${user.email}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Passport #</th>
+                            <td>${user.passport}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Role</th>
+                            <td>${user.role}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Access Level</th>
+                            <td>${user.access}</td>
+                        </tr>
 
-ID: ${user.id}<br>
-NAME: ${user.name}<br>
-PASSPORT: ${user.passport} <br>
-EMAIL: ${user.email} <br>
-ROLE: ${user.role.name}[${user.role.access}] <br>
----><a href="<c:url value="/userRequests?id=${user.id}"/>">Show user requests</a> <br>
----><a href="<c:url value="/userRequests?id=${user.id}"/>">Show user payments</a> <br>
+
+                    </tbody>
+                </table>
+
+            </div>
 
 
-<br>
 
-<a href= "<c:url  value = "/users"/>">Back to Users</a>
+            <div class="col-6">
+                <div class="row" >
+                    <div class="mx-auto">
+                        <a href="<c:url value="/requests/user/${user.id}"/>"><button class="menu">Requests</button></a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <br>
+                        <br>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mx-auto">
+                        <a href="<c:url value="/payments/user/${user.id}"/>"><button class="menu">Payments</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    <div class="row">
+        <div class="col">
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+</div>
 
 </body>
-
 </html>
+
+

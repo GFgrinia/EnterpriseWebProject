@@ -1,11 +1,8 @@
-package com.academy.service;
+package com.academy.service.interfaces;
 
-import com.academy.constant.CarStatuses;
 import com.academy.model.CarStatus;
 
 public interface CarStatusService {
-
     CarStatus findByStatus(String status);
 
-    CarStatus findById(Integer id);
 }
