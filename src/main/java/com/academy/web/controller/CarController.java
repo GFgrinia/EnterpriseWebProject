@@ -28,6 +28,7 @@ public class CarController {
     private final CarStatusService carStatusService;
     private final CarMapper carMapper;
 
+    // TODO: 26.11.2022 depends view on user role like in requests 
     @GetMapping
     public String getCars(@RequestParam(required = false) String status, @RequestParam(required = false) String message, Model model) {
         var cars = carService.getCars(status);
