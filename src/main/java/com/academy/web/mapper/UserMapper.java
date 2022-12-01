@@ -1,8 +1,8 @@
 package com.academy.web.mapper;
 
 import com.academy.model.User;
-import com.academy.web.mapper.dto.UserDto;
-import com.academy.web.mapper.dto.LoginDto;
+import com.academy.web.dto.UserDto;
+import com.academy.web.dto.LoginDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;

@@ -4,7 +4,7 @@ import com.academy.constant.MessageManager;
 import com.academy.model.User;
 import com.academy.service.interfaces.CarService;
 import com.academy.service.interfaces.CarStatusService;
-import com.academy.web.mapper.dto.CarDto;
+import com.academy.web.dto.CarDto;
 import com.academy.web.mapper.CarMapper;
 import com.academy.web.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;

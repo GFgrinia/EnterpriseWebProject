@@ -1,7 +1,7 @@
 package com.academy.web.controller;
 
 import com.academy.constant.MessageManager;
-import com.academy.web.mapper.dto.LoginDto;
+import com.academy.web.dto.LoginDto;
 import com.academy.service.interfaces.LoginService;
 import com.academy.web.mapper.LoginMapper;
 import lombok.RequiredArgsConstructor;

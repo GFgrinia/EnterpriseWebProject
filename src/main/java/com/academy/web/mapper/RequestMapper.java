@@ -2,9 +2,9 @@ package com.academy.web.mapper;
 
 import com.academy.model.Car;
 import com.academy.model.Request;
-import com.academy.web.mapper.dto.RequestCreateDto;
-import com.academy.web.mapper.dto.RequestDto;
-import com.academy.web.mapper.dto.RequestFullDataDto;
+import com.academy.web.dto.RequestCreateDto;
+import com.academy.web.dto.RequestDto;
+import com.academy.web.dto.RequestFullDataDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;

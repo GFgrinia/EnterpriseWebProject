@@ -1,6 +1,6 @@
 package com.academy.web.mapper;
 
-import com.academy.web.mapper.dto.CarDto;
+import com.academy.web.dto.CarDto;
 import com.academy.model.Car;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
