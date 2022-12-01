@@ -50,7 +50,7 @@ create table request(
                         user_id bigint not null,
                         car_id bigint not null,
                         rent_duration bigint not null,
-                        start_date timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                        last_change_date timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                         request_status_id bigint not null,
                         comment varchar(255),
                         foreign key (user_id) references user(id),
@@ -61,7 +61,8 @@ create table request(
 
 create table payment_status(
                                id bigint not null auto_increment primary key,
-                               status varchar(255) unique key
+                               status varchar(255) unique key,
+                               amount int not null
 );
 
 
@@ -69,7 +70,6 @@ create table payment (
                          id bigint not null auto_increment primary key,
                          payment_status_id bigint not null,
                          request_id bigint not null,
-                         amount bigint not null,
                          foreign key (payment_status_id) references payment_status(id),
                          foreign key (request_id) references request(id)
 );

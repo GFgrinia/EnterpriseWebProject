@@ -6,8 +6,6 @@ import com.academy.model.User;
 import java.util.List;
 
 public interface RequestService {
-
-
     /**
      *
      * @param status filter requests by certain status, can be null
@@ -21,9 +19,11 @@ public interface RequestService {
 
     List<Request> getRequestByUser(Integer id);
 
+    void saveRequest(Request request);
 
-    void providePayment(Integer id);
+    void changeRequest(Integer id, String status);
 
-    void provideReturn(Integer id);
+
+
 }
 

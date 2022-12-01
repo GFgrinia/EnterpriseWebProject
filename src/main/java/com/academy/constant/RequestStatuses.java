@@ -6,7 +6,9 @@ public enum RequestStatuses {
     ACTIVE ("Active"),
     COMPLETED ("Completed"),
     OVERDUE ("Overdue"),
-    REJECTED ("Rejected");
+    REJECTED ("Rejected"),
+    CANCELED ("Canceled"),
+    DAMAGED ("Damaged");
 
     public final String label;
 

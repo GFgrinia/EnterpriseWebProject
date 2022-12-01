@@ -5,7 +5,7 @@
     <thead>
     <tr>
         <th scope="col">ID</th>
-        <c:if test="${userRole == admin}">
+        <c:if test="${user.roleName == userAsAdmin}">
             <th scope="col">Username</th>
         </c:if>
         <th scope="col">Model</th>
@@ -18,12 +18,12 @@
     <c:forEach items="${requests}" var = "request">
         <tr>
             <th scope="row">${request.id}</th>
-            <c:if test="${userRole == admin}">
+            <c:if test="${user.roleName == userAsAdmin}">
                 <td>${request.username}</td>
             </c:if>
             <td>${request.model}</td>
             <td>${request.status}</td>
-            <td><a href="<c:url value="/requests?id=${request.id}"/>"><button class="detailsButton">Details</button></a></td>
+            <td><a href="<c:url value="/requests/${request.id}"/>"><button class="detailsButton">Details</button></a></td>
         </tr>
     </c:forEach>
     </tbody>

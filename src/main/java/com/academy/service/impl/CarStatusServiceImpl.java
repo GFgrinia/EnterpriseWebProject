@@ -13,11 +13,10 @@ public class CarStatusServiceImpl implements CarStatusService {
     private final CarStatusRepository carStatusRepository;
 
 
-    // TODO: change findByStatusSlow to findByStatus
     @Override
-    @Cacheable(value = "statuses")
+    @Cacheable(value = "statusesCar")
     public CarStatus findByStatus(String status) {
-        return carStatusRepository.findByStatusSlow(status);
+        return carStatusRepository.findByStatus(status);
     }
 
 

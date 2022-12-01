@@ -10,7 +10,7 @@
 
 
         <div class="row">
-            <div class="col-6">
+            <div class="col-8">
                 <table class="table">
                     <tbody>
                     <tr>
@@ -18,7 +18,7 @@
                         <td>${request.id}</td>
                     </tr>
 
-                    <c:if test="${userRole == admin}">
+                    <c:if test="${user.roleName == userAsAdmin}">
                         <tr>
                             <th scope="col">Username</th>
                             <td>${request.username}</td>
@@ -49,12 +49,10 @@
                         <th scope="col">Status</th>
                         <td>${request.status}</td>
                     </tr>
-                    <c:if test="${userRole == admin}">
                         <tr>
                             <th scope="col">Comment</th>
                             <td>${request.comment}</td>
                         </tr>
-                    </c:if>
 
                     </tbody>
                 </table>
@@ -67,10 +65,10 @@
 
 
 
-                    <c:if test="${request.status == statusApproval && userRole == admin}">
+                    <c:if test="${request.status == statusApproval && user.roleName == userAsAdmin}">
                         <div class="row" >
                             <div class="mx-auto">
-                                <a href="<c:url value="/requests/approve/${request.id}"/>"><button class="menu">Approve</button></a>
+                                <a href="<c:url value="/requests/${request.id}?status=Awaiting payment"/>"><button class="confirmButton">Approve</button></a>
                             </div>
                         </div>
 
@@ -83,18 +81,70 @@
 
                         <div class="row">
                             <div class="mx-auto">
-                                <a href="<c:url value="/requests/reject/${request.id}"/>"><button class="alertButton">Reject</button></a>
+                                <a href="<c:url value="/requests/${request.id}?status=Rejected"/>"><button class="alertButton">Reject</button></a>
                             </div>
                         </div>
                     </c:if>
 
 
-                <c:if test="${ userRole == user}">
+                    <c:if test="${user.roleName == userAsUser}">
 
-                        <c:if test="${request.status == statusActive}">
+                            <c:if test="${request.status == statusActive}">
+                                <div class="row" >
+                                    <div class="mx-auto">
+                                        <a href="<c:url value="/requests/${request.id}?status=Completed"/>"><button class="menu">Return Car</button></a>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <br>
+                                        <br>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mx-auto">
+                                        <a href="<c:url value="/requests/${request.id}?status=Damaged"/>"><button class="alertButton">Return DAMAGED</button></a>
+                                    </div>
+                                </div>
+                            </c:if>
+
+
+                            <c:if test="${request.status == statusApproval}">
+                                <div class="row" >
+                                    <div class="mx-auto">
+                                        <a href="<c:url value="/requests/${request.id}?status=Canceled"/>"><button class="menu">CANCEL ORDER</button></a>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <br>
+                                        <br>
+                                    </div>
+                                </div>
+                            </c:if>
+
+
+                            <c:if test="${request.status == statusPayment}">
+                                <div class="row" >
+                                    <div class="mx-auto">
+                                        <a href="<c:url value="/requests/${request.id}?status=Active"/>"><button class="menu">Pay $!</button></a>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <br>
+                                        <br>
+                                    </div>
+                                </div>
+                            </c:if>
+                        <c:if test="${request.status == statusDamaged}">
                             <div class="row" >
                                 <div class="mx-auto">
-                                    <a href="<c:url value="/requests/return"/>"><button class="menu">Return Car</button></a>
+                                    <a href="<c:url value="/requests/${request.id}?status=Completed"/>"><button class="menu">Pay Damage$!</button></a>
                                 </div>
                             </div>
 
@@ -104,33 +154,8 @@
                                     <br>
                                 </div>
                             </div>
-
-                            <div class="row">
-                                <div class="mx-auto">
-                                    <a href="<c:url value="/requests/return"/>"><button class="alertButton">Return DAMAGED</button></a>
-                                </div>
-                            </div>
                         </c:if>
-
-
-                        <c:if test="${request.status == statusApproval}">
-                            <div class="row" >
-                                <div class="mx-auto">
-                                    <a href="<c:url value="/requests/return"/>"><button class="menu">CANCEL ORDER</button></a>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col">
-                                    <br>
-                                    <br>
-                                </div>
-                            </div>
-
-                        </c:if>
-
-
-                </c:if>
+                    </c:if>
 
 
             </div>

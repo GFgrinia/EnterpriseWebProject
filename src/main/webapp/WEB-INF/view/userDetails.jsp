@@ -14,29 +14,30 @@
                     <tbody>
                         <tr>
                             <th scope="col">ID</th>
-                            <td>${user.id}</td>
+                            <td>${userById.id}</td>
                         </tr>
                         <tr>
                             <th scope="col">Name</th>
-                            <td>${user.name}</td>
+                            <td>${userById.name}</td>
                         </tr>
                         <tr>
                             <th scope="col">E-mail</th>
-                            <td>${user.email}</td>
+                            <td>${userById.email}</td>
                         </tr>
                         <tr>
                             <th scope="col">Passport #</th>
-                            <td>${user.passport}</td>
+                            <td>${userById.passport}</td>
                         </tr>
-                        <tr>
+
+                    <c:if test="${user.roleName == userAsAdmin}">
                             <th scope="col">Role</th>
-                            <td>${user.role}</td>
+                            <td>${userById.roleName}</td>
                         </tr>
                         <tr>
                             <th scope="col">Access Level</th>
-                            <td>${user.access}</td>
+                            <td>${userById.accessLevel}</td>
                         </tr>
-
+                    </c:if>
 
                     </tbody>
                 </table>
@@ -48,7 +49,7 @@
             <div class="col-6">
                 <div class="row" >
                     <div class="mx-auto">
-                        <a href="<c:url value="/requests/user/${user.id}"/>"><button class="menu">Requests</button></a>
+                        <a href="<c:url value="/requests?userId=${userById.id}"/>"><button class="menu">Requests</button></a>
                     </div>
                 </div>
 
@@ -61,7 +62,7 @@
 
                 <div class="row">
                     <div class="mx-auto">
-                        <a href="<c:url value="/payments/user/${user.id}"/>"><button class="menu">Payments</button></a>
+                        <a href="<c:url value="/payments?userId=${userById.id}"/>"><button class="menu">Payments</button></a>
                     </div>
                 </div>
             </div>

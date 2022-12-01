@@ -1,7 +1,8 @@
 package com.academy.web.mapper;
 
 import com.academy.model.User;
-import com.academy.web.dto.UserDto;
+import com.academy.web.mapper.dto.UserDto;
+import com.academy.web.mapper.dto.LoginDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -13,7 +14,7 @@ public interface UserMapper {
 
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
-    User userDtoToUser(UserDto userDto);
+    User userRegistrationDtoToUser(LoginDto loginDto);
 
     @Mapping(source = "userRole.accessLevel", target = "accessLevel")
     @Mapping(source = "userRole.roleName", target = "roleName")

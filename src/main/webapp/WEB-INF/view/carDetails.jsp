@@ -1,11 +1,16 @@
 <%@ include file="common/header.jsp"%>
 
     <div class="col-9">
+
+
+        <c:if test="${user.roleName == userAsAdmin}">
                 <div class="row">
                     <%@ include file="common/filterCarButtons.jsp"%>
                 </div>
+        </c:if>
 
-        <c:url value="/cars/carNew" var="addNewCarAction"/>
+
+        <c:url value="/carNew" var="addNewCarAction"/>
         <spring-form:form action="${addNewCarAction}" modelAttribute="carDto" method="post">
                 <div class="row">
                                 <div class="col">
@@ -63,30 +68,37 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col">
-                                            <br>
-                                            <spring-form:label for="cars" path="status">Set status:</spring-form:label>
+                                    <c:if test="${user.roleName == userAsAdmin}">
+                                        <div class="row">
+                                            <div class="col">
+                                                <br>
+                                                <spring-form:label for="cars" path="status">Set status:</spring-form:label>
+                                            </div>
+                                            <div class="col">
+                                                <br>
+                                                <spring-form:select name="cars" id="cars" path="status">
+                                                    <option value="Service">Service</option>
+                                                    <option value="Repair">Repair</option>
+                                                    <option value="Free">Free</option>
+                                                </spring-form:select>
+                                            </div>
                                         </div>
-                                        <div class="col">
-                                            <br>
-                                            <spring-form:select name="cars" id="cars" path="status">
-                                                <option value="Service">Service</option>
-                                                <option value="Repair">Repair</option>
-                                                <option value="Free">Free</option>
-                                            </spring-form:select>
-                                        </div>
-                                    </div>
 
-                                    <div class="row">
-                                        <div class="col">
-                                            <br>
-                                            <input type="submit" value="Update Car Info" class="login">
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <br>
+                                                <input type="submit" value="Update Car Info" class="login">
+                                            </div>
                                         </div>
-                                    </div>
+                                    </c:if>
+
+
                                 </div>
                 </div>
         </spring-form:form>
+
+
 
 
                 <div class="row">
@@ -97,12 +109,30 @@
                     </div>
                 </div>
 
-
+            <c:if test="${user.roleName == userAsUser}">
                 <div class="row">
-                    <div class="mx-auto">
-                        <a href="<c:url value="/cars/delete/${car.id}"/>"><button class="alertButton">Remove Car [X]</button></a>
+                    <div class="col">
+                        <br>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="mx-auto">
+                        <a href="<c:url value="/requestNew?carId=${car.id}"/>"><button class="confirmButton">Rent This Car [+]</button></a>
+                    </div>
+                </div>
+            </c:if>
+
+            <c:if test="${user.roleName == userAsAdmin}">
+                <div class="row">
+                    <div class="mx-auto">
+                        <a href="<c:url value="/delete/${car.id}"/>"><button class="alertButton">Remove Car [X]</button></a>
+                    </div>
+                </div>
+            </c:if>
+
+
+
+
 
     </div>
 

@@ -2,11 +2,9 @@ package com.academy.web.mapper;
 
 import com.academy.model.Car;
 import com.academy.model.Request;
-import com.academy.model.RequestStatus;
-import com.academy.model.User;
-import com.academy.web.dto.RequestDto;
-import com.academy.web.dto.RequestFullDataDto;
-import com.academy.web.dto.RequestUserDto;
+import com.academy.web.mapper.dto.RequestCreateDto;
+import com.academy.web.mapper.dto.RequestDto;
+import com.academy.web.mapper.dto.RequestFullDataDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
@@ -28,7 +26,7 @@ public interface RequestMapper {
     @Mapping(source = "requestStatus.status", target = "status")
     @Mapping(source = "car.rent", target = "rent")
     @Mapping(source = "car", target = "model", qualifiedByName = "carToModel")
-    @Mapping(source = "startDate", target = "date", qualifiedByName = "timestampToSting")
+    @Mapping(source = "lastChangeDate", target = "date", qualifiedByName = "timestampToSting")
     RequestFullDataDto requestToRequestFullDataDto(Request request);
 
 
@@ -38,16 +36,10 @@ public interface RequestMapper {
     RequestDto requestToRequestDto(Request request);
 
 
-//    @Mapping(source = "requestStatus.status", target = "status")
-//    @Mapping(source = "car", target = "model", qualifiedByName = "carToModel")
-//    @Mapping(source = "car.rent", target = "rent")
-//    @Mapping(source = "startDate", target = "date", qualifiedByName = "timestampToSting")
-//    RequestUserDto requestToRequestUserDto(Request request);
+    Request requestCreateDtoToRequest(RequestCreateDto requestCreateDto);
 
 
     List<RequestDto> map(List<Request> requests);
-//    List<RequestFullDataDto> mapFullData (List<Request> requests);
-
 
 
     @Named("carToModel")

@@ -11,6 +11,6 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public String handleException() {
-        return "redirect:/error";
+        return "/error";
     }
 }

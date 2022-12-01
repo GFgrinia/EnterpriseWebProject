@@ -14,7 +14,7 @@ public class PaymentStatusServiceImpl implements PaymentStatusService {
     private final PaymentStatusRepository paymentStatusRepository;
 
     @Override
-    @Cacheable(value = "statuses")
+    @Cacheable(value = "statusesPayment")
     public PaymentStatus findByStatus(String status) {
         return paymentStatusRepository.findByStatus(status);
     }

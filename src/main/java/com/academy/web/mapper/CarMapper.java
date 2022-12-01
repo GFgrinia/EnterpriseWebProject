@@ -1,11 +1,9 @@
 package com.academy.web.mapper;
 
-import com.academy.model.CarStatus;
-import com.academy.web.dto.CarDto;
+import com.academy.web.mapper.dto.CarDto;
 import com.academy.model.Car;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;

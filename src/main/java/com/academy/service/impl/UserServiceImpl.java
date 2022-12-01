@@ -1,7 +1,6 @@
 package com.academy.service.impl;
 
 import com.academy.model.User;
-import com.academy.repository.LoginRepository;
 import com.academy.repository.UserRepository;
 import com.academy.service.interfaces.UserService;
 import lombok.RequiredArgsConstructor;
@@ -13,9 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
-    private final LoginRepository loginRepository;
 
-   //@Cacheable("users")
     public User getUserByUsername(String username) {
         return userRepository.findByName(username);
     }
@@ -34,6 +31,5 @@ public class UserServiceImpl implements UserService {
     public void saveUser(User user) {
         userRepository.save(user);
     }
-
 }
 

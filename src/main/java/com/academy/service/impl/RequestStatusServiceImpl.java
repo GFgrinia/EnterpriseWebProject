@@ -14,7 +14,7 @@ public class RequestStatusServiceImpl implements RequestStatusService {
     private final RequestStatusRepository requestStatusRepository;
 
     @Override
-    @Cacheable(value = "statuses")
+    @Cacheable(value = "statusesRequest")
     public RequestStatus findByStatus(String status) {
         return requestStatusRepository.findByStatus(status);
     }

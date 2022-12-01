@@ -1,7 +1,7 @@
 package com.academy.constant;
 
 public enum PaymentStatuses {
-    WAIT ("Awaiting payment"),
+    WAIT ("Waiting"),
     REJECTED ("Rejected"),
     COMPLETED ("Completed");
 

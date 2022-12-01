@@ -1,6 +1,9 @@
 package com.academy.service.impl;
 
+import com.academy.constant.CarStatuses;
+import com.academy.constant.UserRole;
 import com.academy.model.Car;
+import com.academy.model.User;
 import com.academy.repository.CarRepository;
 import com.academy.service.interfaces.CarService;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +18,21 @@ public class CarServiceImpl implements CarService {
 
 
     @Override
-    public List<Car> getCars(String status) {
-        return status != null ? carRepository.findCarsByStatus(status) : carRepository.findAll();
+    public List<Car> getCars(String status, User user) {
+        String defaultStatus = CarStatuses.FREE.label;
+
+        if (user != null) {
+            String currentUserRoleName = user.getUserRole().getRoleName();
+
+            if (currentUserRoleName.equals(UserRole.ROLE_ADMIN.roleName)) {
+                return status != null ? carRepository.findCarsByStatus(status) : carRepository.findAll();
+            } else {
+                return carRepository.findCarsByStatus(defaultStatus);
+            }
+
+        } else {
+            return carRepository.findCarsByStatus(defaultStatus);
+        }
     }
 
 
@@ -28,16 +44,12 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car getCarById(Integer id) {
-        // TODO: 18.11.2022 Optional check with exception
-        return carRepository.findById(id).get();
+        return carRepository.findById(id).orElseThrow();
     }
 
 
     @Override
     public void deleteCarById(Integer id) {
-        // TODO: 18.11.2022  Exception with illegal id
         carRepository.deleteById(id);
     }
-
-
 }

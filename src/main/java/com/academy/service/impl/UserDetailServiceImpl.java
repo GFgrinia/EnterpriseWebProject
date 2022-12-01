@@ -23,19 +23,19 @@ public class UserDetailServiceImpl implements UserDetailsManager {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-            var user = userRepository.findByName(username);
-            if (user ==  null) {
-                throw new UsernameNotFoundException("User " + username + " not found.");
-            }
-            var password = loginRepository.findById(user.getId()).get().getPassword();
+        var user = userRepository.findByName(username);
+        if (user == null) {
+            throw new UsernameNotFoundException("User " + username + " not found.");
+        }
+        var password = loginRepository.findByUser(user).getPassword();
 
-            return new User(user.getName(),
-                    password,
-                    true,
-                    true,
-                    true,
-                    true,
-                    getAuthorities(user));
+        return new User(user.getName(),
+                password,
+                true,
+                true,
+                true,
+                true,
+                getAuthorities(user));
     }
 
 
@@ -69,7 +69,6 @@ public class UserDetailServiceImpl implements UserDetailsManager {
     public boolean userExists(String username) {
         return false;
     }
-
 
 
     public static class CarsServiceGrantedAuthority implements GrantedAuthority {

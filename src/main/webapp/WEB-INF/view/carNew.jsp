@@ -1,15 +1,8 @@
 <%@ include file="common/header.jsp" %>
 
     <div class="col-9">
-        <div class="row">
-            <%@ include file="common/filterCarButtons.jsp"%>
 
-        </div>
-        <div class="row p-2" >
-
-        </div>
-
-        <c:url value="/cars/carNew" var="addNewCarAction"/>
+        <c:url value="/carNew" var="addNewCarAction"/>
         <spring-form:form action="${addNewCarAction}" modelAttribute="carDto"  method="post">
 
         <div class="row">

@@ -1,6 +1,5 @@
 package com.academy.model;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +16,6 @@ public class RequestStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column
+    @Column(name = "status")
     private String status;
 }
